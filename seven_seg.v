@@ -25,20 +25,20 @@ module seven_seg(
     output [3:0] anodes
     );
 	 
-	 reg [1:0]mux;
+	 reg [1:0] mux = 0;
 	 reg [14:0] count = 0;
 	 
-	 //implement counter
-	 always @(posedge clk)
+	 //Scale down clock and count
+	 always @ (posedge clk)
 	 begin
-	 if(count == 9999)
-		begin
-		mux <= mux + 1'b1;
-		count <= 0;
-		end
-	 else
 		count <= count + 1'b1;
+		if (count == 9999)
+			begin
+				count <= 0; //causing a warning
+				mux <= mux + 1'b1;
+			end
 	 end
+	 
 
 	//select input with mux (by setting anode)
 

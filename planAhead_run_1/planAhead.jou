@@ -1,0 +1,97 @@
+#-----------------------------------------------------------
+# PlanAhead v14.5 (64-bit)
+# Build 247527 by xbuild on Mon Mar 25 17:13:07 MDT 2013
+# Start of session at: Mon Sep 08 20:17:02 2014
+# Process ID: 9072
+# Log file: M:/ECE3829/lab2/planAhead_run_1/planAhead.log
+# Journal file: M:/ECE3829/lab2/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source M:/ECE3829/lab2/pa.fromNetlist.tcl
+startgroup
+set_property package_pin L14 [get_ports {in[0]}]
+endgroup
+startgroup
+set_property package_pin N14 [get_ports {in[1]}]
+endgroup
+startgroup
+set_property package_pin M14 [get_ports {in[2]}]
+endgroup
+startgroup
+set_property package_pin U18 [get_ports {in[3]}]
+endgroup
+startgroup
+set_property package_pin U17 [get_ports {in[4]}]
+endgroup
+set_property package_pin "" [get_ports [list  {in[5]}]]
+startgroup
+set_property package_pin N14 [get_ports {in[1]}]
+endgroup
+startgroup
+set_property package_pin L14 [get_ports {in[0]}]
+endgroup
+set_property package_pin "" [get_ports [list  {in[4]}]]
+startgroup
+set_property package_pin U18 [get_ports {in[3]}]
+endgroup
+set_property package_pin "" [get_ports [list  {in[2]} {in[1]} {in[3]} {in[0]}]]
+startgroup
+set_property package_pin L14 [get_ports {seg[1]}]
+endgroup
+startgroup
+set_property package_pin N14 [get_ports {seg[2]}]
+endgroup
+startgroup
+set_property package_pin M14 [get_ports {seg[3]}]
+endgroup
+startgroup
+set_property package_pin U18 [get_ports {seg[4]}]
+endgroup
+startgroup
+set_property package_pin T18 [get_ports {seg[5]}]
+endgroup
+startgroup
+set_property package_pin T17 [get_ports {seg[6]}]
+endgroup
+startgroup
+set_property package_pin T10 [get_ports {in[0]}]
+endgroup
+startgroup
+set_property package_pin T9 [get_ports {in[1]}]
+endgroup
+startgroup
+set_property package_pin V9 [get_ports {in[2]}]
+endgroup
+startgroup
+set_property package_pin M8 [get_ports {in[3]}]
+endgroup
+startgroup
+set_property package_pin N8 [get_ports {in[4]}]
+endgroup
+set_property package_pin "" [get_ports [list  {in[5]}]]
+startgroup
+set_property package_pin U8 [get_ports {in[5]}]
+endgroup
+startgroup
+set_property package_pin V8 [get_ports {in[6]}]
+endgroup
+startgroup
+set_property package_pin T5 [get_ports {in[7]}]
+endgroup
+startgroup
+set_property package_pin C9 [get_ports {in[8]}]
+endgroup
+startgroup
+set_property package_pin C4 [get_ports {in[9]}]
+endgroup
+startgroup
+set_property package_pin B8 [get_ports {in[10]}]
+endgroup
+startgroup
+set_property package_pin D9 [get_ports {in[11]}]
+endgroup
+startgroup
+set_property package_pin A9 [get_ports {in[12]}]
+endgroup
+set_property package_pin "" [get_ports [list  {in[13]}]]
+save_constraints

@@ -1,0 +1,32 @@
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+xst -intstyle ise -ifn "M:/ECE3829/lab2/lab2.xst" -ofn "M:/ECE3829/lab2/lab2.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc seven_seg.ucf -p xc6slx16-csg324-3 lab2.ngc lab2.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc seven_seg.ucf -p xc6slx16-csg324-3 lab2.ngc lab2.ngd  
+map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o lab2_map.ncd lab2.ngd lab2.pcf 
+par -w -intstyle ise -ol high -mt off lab2_map.ncd lab2.ncd lab2.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml lab2.twx lab2.ncd -o lab2.twr lab2.pcf -ucf seven_seg.ucf 
+bitgen -intstyle ise -f lab2.ut lab2.ncd 
