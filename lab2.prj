@@ -1,4 +1,0 @@
-verilog work "ipcore_dir/dcm_10.v"
-verilog work "ipcore_dir/dcm_10/example_design/dcm_10_exdes.v"
-verilog work "seven_seg.v"
-verilog work "lab2.v"
