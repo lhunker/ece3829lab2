@@ -28,16 +28,23 @@ module seven_seg(
 	 reg [1:0] mux = 0;
 	 reg [14:0] count = 0;
 	 
-	 //Scale down clock and count
+	 //Scale down clock
 	 always @ (posedge clk)
 	 begin
-		count <= count + 1'b1;
 		if (count == 9999)
-			begin
-				count <= 0; //causing a warning
-				mux <= mux + 1'b1;
-			end
+			count <= 0; //causing a warning
+		else
+			count <= count + 1'b1;
 	 end
+	 
+	 //Counter for selection
+	 wire count_en;
+	 
+	 assign count_en = (count == 9999);
+	 
+	 always @(posedge clk)
+		if(count_en)
+			mux <= mux + 1'b1;
 	 
 
 	//select input with mux (by setting anode)
@@ -54,23 +61,42 @@ module seven_seg(
 		in[15:12];
 		
 	//convert input to 7 seg output
+	
+	//parameters for display
+	parameter zero = 7'b000001;
+	parameter one = 7'b1001111;
+	parameter two = 7'b0010010;
+	parameter three = 7'b0000110;
+	parameter four = 7'b1001100;
+	parameter five = 7'b0100100;
+	parameter six = 7'b0100000;
+	parameter seven = 7'b0001111;
+	parameter eight = 7'b0000000;
+	parameter nine = 7'b0001100;
+	parameter ten = 7'b0001000;
+	parameter eleven =  7'b1100000;
+	parameter twelve = 7'b0110001;
+	parameter thirteen = 7'b1000010;
+	parameter fourteen = 7'b0110000;
+	parameter fifteen = 7'b0111000;
 
-	assign seg = (display == 4'b0000) ? 7'b000001 :
-		(display == 4'b0001) ? 7'b1001111 : 
-		(display == 4'b0010) ? 7'b0010010 :
-		(display == 4'b0011) ? 7'b0000110 : 	
-		(display == 4'b0100) ? 7'b1001100 : 
-		(display == 4'b0101) ? 7'b0100100 : 
-		(display == 4'b0110) ? 7'b0100000 :
-		(display == 4'b0111) ? 7'b0001111 :
-		(display == 4'b1000) ? 7'b0000000 :
-		(display == 4'b1001) ? 7'b0001100 : 	
-		(display == 4'b1010) ? 7'b0001000 :
-		(display == 4'b1011) ? 7'b1100000 :
-		(display == 4'b1100) ? 7'b0110001 :
-		(display == 4'b1101) ? 7'b1000010 :
-		(display == 4'b1110) ? 7'b0110000 :
-		7'b0111000;
+	//setup display
+	assign seg = (display == 4'b0000) ?  zero :
+		(display == 4'b0001) ? one : 
+		(display == 4'b0010) ? two :
+		(display == 4'b0011) ? three : 	
+		(display == 4'b0100) ? four : 
+		(display == 4'b0101) ? five : 
+		(display == 4'b0110) ? six :
+		(display == 4'b0111) ? seven :
+		(display == 4'b1000) ?  eight:
+		(display == 4'b1001) ? nine : 	
+		(display == 4'b1010) ? ten :
+		(display == 4'b1011) ? eleven :
+		(display == 4'b1100) ? twelve :
+		(display == 4'b1101) ? thirteen :
+		(display == 4'b1110) ? fourteen :
+		fifteen;
 	
 endmodule
 
