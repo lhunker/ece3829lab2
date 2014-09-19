@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Lukas Hunker and Brede Doerner
 // 
 // Create Date:    13:44:12 09/14/2014 
 // Design Name: 
@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
-// Description: 
+// Description: Generates rgb patterns to display on vga 
 //
 // Dependencies: 
 //
@@ -37,6 +37,7 @@ module vga_gen(
 	reg col;	//the current column
 	reg row; //the current row
 	
+	//assign column id, all columns are assigned 1 or 0 in an alternating pattern
 	always @ (hcount, col)
 		if(hcount < 80)
 			col <= 1'b0;
@@ -55,6 +56,7 @@ module vga_gen(
 		else
 			col <= 1'b1;
 	
+	//assign row id, all rows assigned id of 0 or 1 in an alternating pattern
 	always @ (vcount, row)
 		if (vcount < 60)
 			row <= 1'b0;
@@ -72,7 +74,9 @@ module vga_gen(
 			row <= 1'b0;
 		else
 			row <= 1'b1;
-
+	
+	//Determine which color is being output
+	//black if blank otherwise, the xor of the column and row ids
 	assign checker = (blank) ? black :
 		(col ^ row) ? white : black;
 		
@@ -84,17 +88,19 @@ module vga_gen(
 	wire [7:0] square;
 	reg sqcolor;	//the current color for the square
 	
+	//assign color to white if in the middle, else black
 	always @ (hcount, vcount, sqcolor)
 		if (hcount >316 && hcount < 324 &&
 			vcount > 232 && vcount < 248)
 			sqcolor = 1'b1;
 		else
 			sqcolor = 1'b0;
-			
+	
+	//assign final color or set to black if blank	
 	assign square = (blank) ?black :
 		(sqcolor) ? white : black;
 		
-	//output selection
+	//output selection based on mux
 	assign rgb = (mux == 0) ? allblue :
 		(mux == 1) ? checker : square;
 		

@@ -9,7 +9,7 @@
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
-// Description: 
+// Description: Takes in a 16 bit number and converts it to seven segment display outputs
 //
 // Dependencies: 
 //
@@ -25,14 +25,14 @@ module seven_seg(
     output [3:0] anodes
     );
 	 
-	 reg [1:0] mux = 0;
-	 reg [14:0] count = 0;
+	 reg [1:0] mux = 0;	//anode selector mux
+	 reg [14:0] count = 0;	//counter to scale down clock
 	 
-	 //Scale down clock
+	 //Scale down clock to 1khz
 	 always @ (posedge clk)
 	 begin
 		if (count == 9999)
-			count <= 0; //causing a warning
+			count <= 0;
 		else
 			count <= count + 1'b1;
 	 end
@@ -40,7 +40,7 @@ module seven_seg(
 	 //Counter for selection
 	 wire count_en;
 	 
-	 assign count_en = (count == 9999);
+	 assign count_en = (count == 9999);	//enable for anode counter
 	 
 	 always @(posedge clk)
 		if(count_en)

@@ -1,30 +1,24 @@
 
 
-#NET "seg[1]" LOC = N14;
-#NET "seg[2]" LOC = M14;
-#NET "seg[3]" LOC = U18;
-#NET "seg[4]" LOC = U17;
-#NET "seg[5]" LOC = T18;
-#NET "seg[6]" LOC = T17;
-#
-#
-#
-#NET "seg[0]" LOC = L14;
-#NET "anode[0]" LOC = N16;
-#NET "anode[1]" LOC = N15;
-#NET "anode[2]" LOC = P18;
-#NET "anode[3]" LOC = P17;
+NET "seg[1]" LOC = N14;
+NET "seg[2]" LOC = M14;
+NET "seg[3]" LOC = U18;
+NET "seg[4]" LOC = U17;
+NET "seg[5]" LOC = T18;
+NET "seg[6]" LOC = T17;
+
+NET "debug" LOC = C9;
+
+NET "seg[0]" LOC = L14;
+NET "anode[0]" LOC = N16;
+NET "anode[1]" LOC = N15;
+NET "anode[2]" LOC = P18;
+NET "anode[3]" LOC = P17;
 NET "sw[0]" LOC = T10;
 NET "sw[1]" LOC = T9;
-NET "sw[2]" LOC = V9;
-NET "sw[3]" LOC = M8;
-NET "sw[4]" LOC = N8;
-NET "sw[5]" LOC = U8;
-NET "sw[6]" LOC = V8;
-NET "sw[7]" LOC = T5;
 NET "reset" LOC = B8;
-NET "lock_led" LOC = U16;
 NET "fpga_clk" LOC = V10;
+NET "fpga_clk" PERIOD = 10.0ns HIGH 50%;
 
 # PlanAhead Generated physical constraints 
 
@@ -36,6 +30,9 @@ NET "grn[2]" LOC = V6;
 NET "red[0]" LOC = U7;
 NET "red[1]" LOC = V7;
 NET "red[2]" LOC = N7;
-NET "blank" LOC = U15;
 NET "HS" LOC = N6;
 NET "VS" LOC = P7;
+
+NET "dac_clock" LOC = P11;
+NET "dac_sync" LOC = T12;
+NET "dac_sdata" LOC = V12;
